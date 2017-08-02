@@ -16,6 +16,7 @@
     "@angular/platform-browser": "^4.3.2",
     "@angular/platform-browser-dynamic": "^4.3.2",
     "@angular/router": "^4.3.2",
+    "@vb/common": "git+http://192.168.64.181:8899/vbl-pso/interface/common.git#acl"
     "core-js": "^2.4.1",
     "jquery": "^3.2.1",
     "ng2-select": "^1.2.0",
