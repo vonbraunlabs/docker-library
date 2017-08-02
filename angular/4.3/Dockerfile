@@ -1,5 +1,7 @@
 FROM node:alpine
 
+WORKDIR /lib/
+
 COPY package.json ./
 
 RUN apk update
