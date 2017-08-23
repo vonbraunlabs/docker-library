@@ -31,8 +31,10 @@ RUN curl -s -f -L -o /tmp/installer.php https://raw.githubusercontent.com/compos
         }" \
      && php /tmp/installer.php --no-ansi --install-dir=/usr/bin --filename=composer --version=${COMPOSER_VERSION} \
      && rm /tmp/installer.php \
+     && composer self-update \
      && composer --ansi --version --no-interaction
 
+RUN composer global require hirak/prestissimo
 
 RUN a2enmod rewrite \
     && printf 'RewriteEngine On\nRewriteCond %%{REQUEST_FILENAME} !-f\nRewriteRule ^ index.php [QSA,L]\n' > /var/www/html/.htaccess
