@@ -13,4 +13,11 @@ RUN echo "memory_limit=-1" > "$PHP_INI_DIR/conf.d/memory-limit.ini" \
 
 RUN apt-get install -y wget
 
+COPY composer-force-cache /composer-force-cache
+
+RUN cd /composer-force-cache \
+    && composer install -vvv --profile \
+    && composer require $(cat ~/proj2/vonbraun/vbl-pso/list.txt) -vvv --profile \
+    && rm -rf vendor/ composer.lock
+
 WORKDIR /var/www/html/
