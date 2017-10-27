@@ -17,7 +17,8 @@ COPY composer-force-cache /composer-force-cache
 
 RUN cd /composer-force-cache \
     && composer install -vvv --profile \
-    && composer require $(cat ~/proj2/vonbraun/vbl-pso/list.txt) -vvv --profile \
-    && rm -rf vendor/ composer.lock
+    && composer require $(cat list.txt) -vvv --profile \
+    && cd / \
+    && rm -rf /composer-force-cache
 
 WORKDIR /var/www/html/
