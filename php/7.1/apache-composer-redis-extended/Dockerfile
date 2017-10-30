@@ -11,7 +11,9 @@ RUN echo "memory_limit=-1" > "$PHP_INI_DIR/conf.d/memory-limit.ini" \
  && echo "session.save_handler = rediscluster" >> "$PHP_INI_DIR/conf.d/redis.ini" \
  && echo "session.save_path = \"seed[]=tasks.redis:6379\"" >> "$PHP_INI_DIR/conf.d/redis.ini"
 
-RUN apt-get install -y wget
+RUN apt-get install -y \
+    time \
+    wget
 
 COPY composer-force-cache /composer-force-cache
 
