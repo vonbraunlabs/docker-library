@@ -1,0 +1,10 @@
+{
+    "name": "vonbraunlabs/composer-force-cache",
+    "authors": [
+        {
+            "name": "Diogo Oliveira de Melo",
+            "email": "dmelo87@gmail.com"
+        }
+    ],
+    "require": {}
+}
