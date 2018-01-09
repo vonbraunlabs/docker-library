@@ -15,12 +15,4 @@ RUN apt-get install -y \
     time \
     wget
 
-COPY composer-force-cache /composer-force-cache
-
-RUN cd /composer-force-cache \
-    && composer install -vvv --profile \
-    && composer require $(cat list.txt) -vvv --profile \
-    && cd / \
-    && rm -rf /composer-force-cache
-
 WORKDIR /var/www/html/
