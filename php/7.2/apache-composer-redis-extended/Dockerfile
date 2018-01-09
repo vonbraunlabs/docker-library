@@ -1,6 +1,6 @@
 FROM vonbraunlabs/php:7.2-apache-composer-redis
 
-RUN docker-php-ext-install -j$(nproc)
+RUN docker-php-ext-install -j$(nproc) \
         iconv \
         pdo \
         pdo_mysql \
