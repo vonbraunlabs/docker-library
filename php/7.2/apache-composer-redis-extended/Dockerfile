@@ -1,9 +1,10 @@
 FROM vonbraunlabs/php:7.2-apache-composer-redis
 
-RUN docker-php-ext-install -j$(nproc) iconv mcrypt \
-    && docker-php-ext-install -j$(nproc) pdo \
-    && docker-php-ext-install -j$(nproc) pdo_mysql \
-    && docker-php-ext-install -j$(nproc) zip
+RUN docker-php-ext-install -j$(nproc)
+        iconv \
+        pdo \
+        pdo_mysql \
+        zip
 
 RUN echo "memory_limit=-1" > "$PHP_INI_DIR/conf.d/memory-limit.ini" \
  && echo "date.timezone=${PHP_TIMEZONE:-UTC}" > "$PHP_INI_DIR/conf.d/date_timezone.ini" \
