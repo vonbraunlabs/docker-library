@@ -6,5 +6,5 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/reposit
 
 RUN apk update
 RUN apk add --no-cache \
-    git
+    git \
     bash
