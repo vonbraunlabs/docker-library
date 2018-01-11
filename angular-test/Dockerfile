@@ -4,6 +4,7 @@ RUN apk add --no-cache \
     python \
     build-base \
     openjdk8-jre-base \
+    bind-tools \
     # chromium dependencies
     udev \
     ttf-freefont \
