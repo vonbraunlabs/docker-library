@@ -1,7 +1,13 @@
 FROM php:7.2
 
 RUN apt-get update && apt-get install -y \
-        git
+        git \
+        libzip-dev \
+        unzip \
+        zip
+
+RUN docker-php-ext-install -j$(nproc) \
+        zip
 
 ENV PATH "/composer/vendor/bin:$PATH"
 ENV COMPOSER_ALLOW_SUPERUSER 1
