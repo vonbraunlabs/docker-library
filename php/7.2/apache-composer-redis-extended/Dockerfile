@@ -13,7 +13,6 @@ RUN echo "memory_limit=-1" > "$PHP_INI_DIR/conf.d/memory-limit.ini" \
  && echo "session.save_path = \"seed[]=tasks.redis:6379\"" >> "$PHP_INI_DIR/conf.d/redis.ini"
 
 RUN apt-get install -y \
-    time \
-    wget
+    time
 
 WORKDIR /var/www/html/
