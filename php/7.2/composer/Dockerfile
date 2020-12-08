@@ -17,5 +17,5 @@ ENV COMPOSER_VERSION 1.10.5
 COPY install-composer.sh ./
 RUN ./install-composer.sh
 
-RUN composer global require hirak/prestissimo
+
 

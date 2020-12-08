@@ -24,7 +24,7 @@ ENV COMPOSER_VERSION 1.10.5
 COPY install-composer.sh ./
 RUN ./install-composer.sh
 
-RUN composer global require hirak/prestissimo
+
 
 RUN a2enmod rewrite \
     && printf 'RewriteEngine On\nRewriteCond %%{REQUEST_FILENAME} !-f\nRewriteRule ^ index.php [QSA,L]\n' > /var/www/html/.htaccess

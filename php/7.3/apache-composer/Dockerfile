@@ -1,7 +1,19 @@
-FROM php:7.1
+FROM php:7.3-apache
 
 RUN apt-get update && apt-get install -y \
-        git
+        bash \
+        curl \
+        git \
+        libfreetype6-dev \
+        libjpeg62-turbo-dev \
+        libmcrypt-dev \
+        libpng*-dev \
+        mercurial \
+        openssh-client \
+        openssl \
+        subversion \
+        unzip \
+        zip
 
 ENV PATH "/composer/vendor/bin:$PATH"
 ENV COMPOSER_ALLOW_SUPERUSER 1
@@ -23,4 +35,7 @@ RUN curl -s -f -L -o /tmp/installer.php https://raw.githubusercontent.com/compos
      && composer --ansi --version --no-interaction
 
 
+
+RUN a2enmod rewrite \
+    && printf 'RewriteEngine On\nRewriteCond %%{REQUEST_FILENAME} !-f\nRewriteRule ^ index.php [QSA,L]\n' > /var/www/html/.htaccess
 
